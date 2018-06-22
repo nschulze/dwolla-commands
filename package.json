@@ -1,10 +1,10 @@
 {
-  "name": "zazu-giphy",
-  "description": "Gif giving is the greatest love language of all.",
-  "version": "1.0.8",
+  "name": "dwolla-commands",
+  "description": "Search through a list of helpful dwolla commands.",
+  "version": "1.0.9",
   "main": "index.js",
   "repository": {
-    "url": "https://github.com/halvves/zazu-giphy",
+    "url": "https://github.com/dwolla/dwolla-commands",
     "type": "git"
   },
   "files": [
@@ -13,9 +13,8 @@
     "zazu.json"
   ],
   "author": {
-    "name": "halvves",
-    "email": "hi@halvves.com",
-    "url": "http://halvves.com"
+    "name": "Nick Schulze",
+    "email": "nicks@dwolla.com",
   },
   "license": "MIT",
   "scripts": {
