@@ -21,7 +21,7 @@ module.exports = (pluginContext) => {
           {
             icon: 'fa-question-circle',
             title: `${k}`,
-            subtitle: `help ${k} {topic}`,
+            subtitle: `commands ${k} {topic}`,
           })
       }
       return new Promise((resolve, reject) => {
