@@ -7,35 +7,30 @@ const devHelp = path.join(docsPath, 'dev-help.json')
 
 module.exports = (pluginContext) => {
   return (search, env = {}) => {
-    let data = fs.readFileSync(devHelp)
-    let json = JSON.parse(data)
-    var keys = []
-    for (var k in json) keys.push(k)
-
-    let searchArray = search.split(' ')
-    console.log()
-    console.log(searchArray)
-    console.log()
-    var hints = []
-    if (keys.includes(searchArray[0])) {
-      var topic = searchArray[0]
-      for (var h in json[topic]) {
-        hints.push({
-          icon: 'fa-terminal',
-          title: h,
-          subtitle: json[topic][h],
-          value: json[topic][h]
-        })
+    if (search.trim() === '') {
+      let data = fs.readFileSync(devHelp)
+      let json = JSON.parse(data)
+      var topics
+      topics = [{
+        icon: 'fa-laptop',
+        title: 'Looking for something?',
+        subtitle: 'Search one of the following topics:'
+      }]
+      for (var k in json) {
+        topics.push(
+          {
+            icon: 'fa-question-circle',
+            title: `${k}`,
+            subtitle: `help ${k} {topic}`,
+          })
       }
+      return new Promise((resolve, reject) => {
+        resolve(topics)
+      })
     } else {
-      hints.push({
-        icon: 'fa-question-circle',
-        title: search,
-        subtitle: `Nothing found for ${search}.`
+      return new Promise((resolve, reject) => {
+        resolve()
       })
     }
-    return new Promise((resolve, reject) => {
-      resolve(hints)
-    })
   }
 }
