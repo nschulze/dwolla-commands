@@ -1,7 +1,7 @@
 {
   "name": "dwolla-commands",
   "description": "Search through a list of helpful dwolla commands.",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "main": "index.js",
   "repository": {
     "url": "https://github.com/dwolla/dwolla-commands",
@@ -14,7 +14,7 @@
   ],
   "author": {
     "name": "Nick Schulze",
-    "email": "nicks@dwolla.com",
+    "email": "nicks@dwolla.com"
   },
   "license": "MIT",
   "scripts": {

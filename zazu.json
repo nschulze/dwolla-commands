@@ -1,6 +1,6 @@
 {
   "name": "dwolla-commands",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Search through a list of helpful dwolla commands.",
   "blocks": {
     "input": [
