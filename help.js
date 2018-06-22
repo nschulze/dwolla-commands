@@ -1,10 +1,13 @@
 'use strict'
 
 const fs = require('fs')
+const path = require('path')
+const docsPath = path.resolve(__dirname, 'docs')
+const devHelp = path.join(docsPath, 'dev-help.json')
 
 module.exports = (pluginContext) => {
   return (search, env = {}) => {
-    let data = fs.readFileSync('dev-help.json')
+    let data = fs.readFileSync(devHelp)
     let json = JSON.parse(data)
     var keys = []
     for (var k in json) keys.push(k)

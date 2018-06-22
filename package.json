@@ -1,7 +1,7 @@
 {
   "name": "zazu-giphy",
   "description": "Gif giving is the greatest love language of all.",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "index.js",
   "repository": {
     "url": "https://github.com/halvves/zazu-giphy",

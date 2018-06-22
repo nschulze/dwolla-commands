@@ -1,6 +1,6 @@
 {
   "name": "zazu-giphy",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Gif giving is the greatest love language of all.",
   "blocks": {
     "input": [
