@@ -13,7 +13,9 @@ module.exports = (pluginContext) => {
     for (var k in json) keys.push(k)
 
     let searchArray = search.split(' ')
-
+    console.log()
+    console.log(searchArray)
+    console.log()
     var hints = []
     if (keys.includes(searchArray[0])) {
       var topic = searchArray[0]
@@ -22,14 +24,14 @@ module.exports = (pluginContext) => {
           icon: 'fa-terminal',
           title: h,
           subtitle: json[topic][h],
-          value: json[topic][h],
+          value: json[topic][h]
         })
       }
     } else {
       hints.push({
         icon: 'fa-question-circle',
         title: search,
-        subtitle: `Nothing found for ${search}.`,
+        subtitle: `Nothing found for ${search}.`
       })
     }
     return new Promise((resolve, reject) => {
