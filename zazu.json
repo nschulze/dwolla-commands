@@ -1,13 +1,13 @@
 {
   "name": "zazu-giphy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Gif giving is the greatest love language of all.",
   "blocks": {
     "input": [
       {
         "id": "searcher",
         "type": "PrefixScript",
-        "prefix": "giphy",
+        "prefix": "help",
         "space": true,
         "args": "required",
         "script": "index.js",

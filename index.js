@@ -1,23 +1,39 @@
-const got = require('got')
-const indexer = (obj, i) => obj[i]
+'use strict'
 
-module.exports = () => (str, env = {}) => got('api.giphy.com/v1/gifs/search', {
-  json: true,
-  query: {
-    q: str,
-    limit: 5,
-    api_key: 'dc6zaTOxFJmzC'
-  }
-}).then(res => res.body.data.map((x, i) => ({
-  icon: 'fa-gift',
-  title: `Giphy Results ${i + 1}`,
-  subtitle: 'Select to copy to the clipboard',
-  value: env.src_main ? env.src_main.split('.').reduce(indexer, x) : x.url,
-  preview: `<style>
-    body {
-      background: url('${x.images.downsized_medium.url}');
-      background-size: cover;
-      background-position: 50% 50%;
+const fs = require('fs')
+const path = require('path')
+const docsPath = path.resolve(__dirname, '../docs')
+const devHelp = path.join(docsPath, 'dev-help.json')
+
+module.exports = () => {
+  return (search, env = {}) => {
+    let data = fs.readFileSync(devHelp)
+    let json = JSON.parse(data)
+    var keys = []
+    for (var k in json) keys.push(k)
+
+    let searchArray = search.split(' ')
+
+    var hints = []
+    if (keys.includes(searchArray[0])) {
+      var topic = searchArray[0]
+      for (var h in json[topic]) {
+        hints.push({
+          icon: 'fa-terminal',
+          title: h,
+          subtitle: json[topic][h],
+          value: json[topic][h],
+        })
+      }
+    } else {
+      hints.push({
+        icon: 'fa-question-circle',
+        title: search,
+        subtitle: `Nothing found for ${search}.`,
+      })
     }
-  </style>`
-})))
+    return new Promise((resolve, reject) => {
+      resolve(hints)
+    })
+  }
+}

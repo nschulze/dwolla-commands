@@ -1,0 +1,33 @@
+{
+  "git": {
+    "recursive rebase": "git rebase  -s recursive -Xignore-all-space master",
+    "sqaush": "git rebase -i HEAD~<number of commits>"
+  },
+  "docker": {
+    "bash command": "docker exec -it postgres bash",
+    "too many connections": "restart docker",
+    "list images": "docker images | grep <service>",
+    "remove image": "docker rmi <image_id>",
+    "run locally": "sbt docker:startLocal",
+    "clean": "sbt docker:clean",
+    "start": "rake <container>",
+    "restart recreate": "rake <container>:recreate"
+  },
+  "sbt": {
+    "start locally": "HOST_IP=docker-host SERVICE_PORT=17188 sbt run",
+    "start in docker": "HOST_IP=docker-host sbt docker:runLocal"
+  },
+  "npm": {
+    "start dwolla-ui-v2": "npm run dev-local"
+  },
+  "ping-pong": {
+    "#1": "TeeTime",
+    "#2": "Chen"
+  },
+  "commands": {
+    "Search Stash": "stash {repo}",
+    "Search Jira": "jira {ticket}",
+    "Search the Wiki": "wiki {topic}",
+    "Search Drive": "drive {file}"
+  }
+}
